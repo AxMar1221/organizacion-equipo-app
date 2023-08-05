@@ -21,4 +21,5 @@
   font-style: normal;
   font-weight: 400;
   border-radius: 15px;
+  box-sizing: border-box;
 }
