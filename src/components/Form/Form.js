@@ -4,7 +4,7 @@ import { Inputs } from "../Inputs/Inputs";
 import { OptionList } from "../OptionList/OptionList";
 import "./Form.css";
 
-export const Form = () => {
+export const Form = (teams) => {
   const [name, setName] = useState("");
   const [rol, setRol] = useState("");
   const [photo, setPhoto] = useState("");
@@ -44,7 +44,7 @@ export const Form = () => {
             value={photo}
             updateData={setPhoto}
           />
-          <OptionList value={team} updateData={setTeam} />
+          <OptionList value={team} updateData={setTeam} team={teams.team}/>
           <Button>Crear</Button>
         </form>
       </section>
