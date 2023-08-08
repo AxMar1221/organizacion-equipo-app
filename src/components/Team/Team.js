@@ -3,19 +3,20 @@ import "./Team.css";
 
 export const Team = (teams) => {
   const { primaryColor, secondaryColor, team } = teams.data;
+  const { collaborators } = teams;
 
-  const secondary = { backgroundColor: secondaryColor}
   return (
-    <section className="teams" style={ secondary}>
-      <h3 style={{ borderColor: primaryColor }}>{team}</h3>
-      <div className="collaborators">
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
-      </div>
-    </section>
+    <>
+      {collaborators.length > 0 && (
+        <section className="teams" style={{ backgroundColor: secondaryColor }}>
+          <h3 style={{ borderColor: primaryColor }}>{team}</h3>
+          <div className="collaborators">
+            {collaborators.map((collaborator, i) => (
+              <Cards data={collaborator} key={i} color={primaryColor} />
+            ))}
+          </div>
+        </section>
+      )}
+    </>
   );
 };

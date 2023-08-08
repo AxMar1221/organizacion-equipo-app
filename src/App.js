@@ -4,12 +4,19 @@ import { Form } from "./components/Form/Form";
 import { Header } from "./components/Header/Header";
 import { Myorg } from "./components/MyOrg/Myorg";
 import { Team } from "./components/Team/Team";
+import { Footer } from "./Footer/Footer";
 
 function App() {
   const [showHideForm, setShowHideForm] = useState(false);
+  const [collaborators, setCollaborators] = useState([]);
 
   const changeShowHide = () => {
     setShowHideForm(!showHideForm);
+  };
+
+  const putCollaborator = (collaborator) => {
+    console.log("new", collaborator);
+    setCollaborators([...collaborators, collaborator]);
   };
 
   const teams = [
@@ -53,12 +60,29 @@ function App() {
   return (
     <div>
       <Header />
-      {showHideForm && <Form team={teams.map((team)=> { return team.team})}/>}
+      {showHideForm && (
+        <Form
+          team={teams.map((team) => {
+            return team.team;
+          })}
+          putCollaborator={putCollaborator}
+        />
+      )}
       <Myorg changeShowHide={changeShowHide} />
 
       {teams.map((team) => {
-        return <Team data={team} key={team.team} />;
+        return (
+          <Team
+            data={team}
+            key={team.team}
+            collaborators={collaborators.filter(
+              (collaborator) => collaborator.team === team.team
+            )}
+          />
+        );
       })}
+
+      <Footer />
     </div>
   );
 }

@@ -10,6 +10,8 @@ export const Form = (teams) => {
   const [photo, setPhoto] = useState("");
   const [team, setTeam] = useState([]);
 
+  const { putCollaborator } = teams
+
   const handleSend = (e) => {
     e.preventDefault();
     let sendData = {
@@ -19,6 +21,7 @@ export const Form = (teams) => {
       team,
     };
     console.log(sendData);
+    putCollaborator(sendData);
   };
 
   return (

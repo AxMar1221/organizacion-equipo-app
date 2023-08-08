@@ -1,14 +1,17 @@
 import "./Cards.css"
 
-export const Cards = () => {
+export const Cards = ( collaborator ) => {
+  const {name, rol, photo } = collaborator.data
+  const { color } = collaborator
+
   return (
     <div className="collaborator">
-        <div className="card__header">
-            <img src="https://github.com/axMar1221.png" alt="avatar" />
+        <div className="card__header" style={{backgroundColor: color}}>
+            <img src={photo} alt={name} />
         </div>
         <div className="info">
-            <h4>Tachidito</h4>
-            <h5>Desarrollador</h5>
+            <h4>{name}</h4>
+            <h5>{rol}</h5>
         </div>
     </div>
   )
