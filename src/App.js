@@ -4,11 +4,43 @@ import { Form } from "./components/Form/Form";
 import { Header } from "./components/Header/Header";
 import { Myorg } from "./components/MyOrg/Myorg";
 import { Team } from "./components/Team/Team";
-import { Footer } from "./Footer/Footer";
+import { Footer } from "./components/Footer/Footer";
+
 
 function App() {
   const [showHideForm, setShowHideForm] = useState(false);
-  const [collaborators, setCollaborators] = useState([]);
+  const [collaborators, setCollaborators] = useState([
+    {
+      name: "Mario Hernández",
+      rol: "Desarrollador Sr",
+      team: "Front End",
+      photo: "https://avatars.githubusercontent.com/u/85906328?v=4"
+    },
+    {
+      name: "Axel Hernández",
+      rol: "Trainer",
+      team: "Front End",
+      photo: "https://avatars.githubusercontent.com/u/140589488?v=4"
+    },
+    {
+      name: "Mario Hernández",
+      rol: "Desarrollador Sr",
+      team: "Programación",
+      photo: "https://avatars.githubusercontent.com/u/85906328?v=4"
+    },
+    {
+      name: "Cynthia Hernández",
+      rol: "Diseñadora Sr",
+      team: "UX y Diseño",
+      photo: "https://avatars.githubusercontent.com/u/129420455?v=4"
+    },
+    {
+      name: "Heidy Murillo",
+      rol: "Diseñadora Sr",
+      team: "UX y Diseño",
+      photo: "https://avatars.githubusercontent.com/u/130028365?v=4"
+    },
+  ]);
 
   const changeShowHide = () => {
     setShowHideForm(!showHideForm);
@@ -18,6 +50,10 @@ function App() {
     console.log("new", collaborator);
     setCollaborators([...collaborators, collaborator]);
   };
+
+  const deleteCollaborator = () => {
+    console.log("eliminar")
+  }
 
   const teams = [
     {
@@ -78,6 +114,7 @@ function App() {
             collaborators={collaborators.filter(
               (collaborator) => collaborator.team === team.team
             )}
+            deleteCollaborator={deleteCollaborator}
           />
         );
       })}
