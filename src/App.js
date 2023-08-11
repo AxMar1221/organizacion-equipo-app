@@ -41,21 +41,7 @@ function App() {
       photo: "https://avatars.githubusercontent.com/u/130028365?v=4"
     },
   ]);
-
-  const changeShowHide = () => {
-    setShowHideForm(!showHideForm);
-  };
-
-  const putCollaborator = (collaborator) => {
-    console.log("new", collaborator);
-    setCollaborators([...collaborators, collaborator]);
-  };
-
-  const deleteCollaborator = () => {
-    console.log("eliminar")
-  }
-
-  const teams = [
+  const [teams, setTeams] =useState([
     {
       team: "Programación",
       primaryColor: "#57C278",
@@ -91,7 +77,30 @@ function App() {
       primaryColor: "#FF8A29",
       secondaryColor: "#FFEEDF",
     },
-  ];
+  ]);
+
+  const changeShowHide = () => {
+    setShowHideForm(!showHideForm);
+  };
+
+  const putCollaborator = (collaborator) => {
+    console.log("new", collaborator);
+    setCollaborators([...collaborators, collaborator]);
+  };
+
+  const deleteCollaborator = () => {
+    console.log("eliminar")
+  }
+
+  const updateTeamColor = (color,team) => {
+    const updateTeamsData = teams.map((teams) => {
+      if (teams.team === team) {
+        teams.primaryColor = color
+      }
+      return teams
+    }) 
+    setTeams(updateTeamsData)
+  }
 
   return (
     <div>
@@ -115,6 +124,7 @@ function App() {
               (collaborator) => collaborator.team === team.team
             )}
             deleteCollaborator={deleteCollaborator}
+            updateTeamColor={updateTeamColor}
           />
         );
       })}
