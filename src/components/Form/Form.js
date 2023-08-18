@@ -9,8 +9,10 @@ export const Form = (teams) => {
   const [rol, setRol] = useState("");
   const [photo, setPhoto] = useState("");
   const [team, setTeam] = useState([]);
+  const [title, setTitle] = useState([]);
+  const [color, setColor] = useState([]);
 
-  const { putCollaborator } = teams
+  const { putCollaborator, createTeam } = teams
 
   const handleSend = (e) => {
     e.preventDefault();
@@ -23,6 +25,15 @@ export const Form = (teams) => {
     console.log(sendData);
     putCollaborator(sendData);
   };
+
+  const handleNewTeam = (e) => {
+    e.preventDefault();
+    let createNewTeam = {
+      team: title,
+      primaryColor: color
+    }
+    createTeam(createNewTeam)
+  }
 
   return (
     <>
@@ -49,6 +60,22 @@ export const Form = (teams) => {
           />
           <OptionList value={team} updateData={setTeam} team={teams.team}/>
           <Button>Crear</Button>
+        </form>
+        <form onSubmit={handleNewTeam}>
+          <h2>Rellene el formulario para crear equipo</h2>
+          <Inputs
+            title="Equipo"
+            placeholder="Ingrese el eqipo"
+            value={title}
+            updateData={setTitle}
+          />
+          <Inputs
+            title="Color"
+            placeholder="Ingrese el color en hexadecimal"
+            value={color}
+            updateData={setColor}
+          />
+          <Button>Crear Equipo</Button>
         </form>
       </section>
     </>

@@ -8,7 +8,7 @@ export const OptionList = (teams) => {
   return (
     <div className="options">
       <label>Equipos</label>
-      <select value={teams.value} onChange={handleChange}>
+      <select value={teams} onChange={handleChange} >
         <option value="" disabled defaultValue="" hidden>
           Seleccionar equipo
         </option>

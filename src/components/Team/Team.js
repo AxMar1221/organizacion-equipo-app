@@ -3,7 +3,7 @@ import hexToRgba from "hex-to-rgba";
 import "./Team.css";
 
 export const Team = (teams) => {
-  const { primaryColor, team } = teams.data;
+  const { primaryColor, team, id } = teams.data;
   const { collaborators, deleteCollaborator, updateTeamColor } = teams;
 
   return (
@@ -14,7 +14,7 @@ export const Team = (teams) => {
             type="color"
             className="input__color"
             value={primaryColor}
-            onChange={(e)=> {updateTeamColor(e.target.value, team)}}
+            onChange={(e)=> {updateTeamColor(e.target.value, id)}}
           />
           <h3 style={{ borderColor: primaryColor }}>{team}</h3>
           <div className="collaborators">
