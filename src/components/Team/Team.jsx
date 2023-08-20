@@ -4,7 +4,7 @@ import "./Team.css";
 
 export const Team = (teams) => {
   const { primaryColor, team, id } = teams.data;
-  const { collaborators, deleteCollaborator, updateTeamColor } = teams;
+  const { collaborators, deleteCollaborator, updateTeamColor, like } = teams;
 
   return (
     <>
@@ -24,6 +24,7 @@ export const Team = (teams) => {
                 key={i}
                 color={primaryColor}
                 deleteCollaborator={deleteCollaborator}
+                like={like}
               />
             ))}
           </div>

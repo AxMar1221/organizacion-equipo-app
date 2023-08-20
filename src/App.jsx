@@ -14,8 +14,9 @@ function App() {
       id: uuid(),
       name: "Mario Hernández",
       rol: "Desarrollador Sr",
-      team: "Front End",
+      team: "Programación",
       photo: "https://avatars.githubusercontent.com/u/85906328?v=4",
+      fav: true,
     },
     {
       id: uuid(),
@@ -23,13 +24,15 @@ function App() {
       name: "Axel Hernández",
       team: "Front End",
       photo: "https://avatars.githubusercontent.com/u/140589488?v=4",
+      fav: false,
     },
     {
       id: uuid(),
       name: "Mario Hernández",
       rol: "Desarrollador Sr",
-      team: "Programación",
+      team: "Front End",
       photo: "https://avatars.githubusercontent.com/u/85906328?v=4",
+      fav: false,
     },
     {
       id: uuid(),
@@ -37,6 +40,7 @@ function App() {
       rol: "Diseñadora Sr",
       team: "UX y Diseño",
       photo: "https://avatars.githubusercontent.com/u/129420455?v=4",
+      fav: false,
     },
     {
       id: uuid(),
@@ -44,6 +48,7 @@ function App() {
       rol: "Diseñadora Sr",
       team: "UX y Diseño",
       photo: "https://avatars.githubusercontent.com/u/130028365?v=4",
+      fav: false,
     },
   ]);
 
@@ -122,8 +127,17 @@ function App() {
   };
 
   const createTeam = (newTeam) => {
-    console.log(newTeam);
     setTeams([...teams, { ...newTeam, id: uuid() }]);
+  };
+
+  const like = (id) => {
+    const updateCollaboratorFav = collaborators.map((collaborator) => {
+      if (collaborator.id === id) {
+        collaborator.fav = !collaborator.fav;
+      }
+      return collaborator;
+    });
+    setCollaborators(updateCollaboratorFav);
   };
 
   return (
@@ -150,6 +164,7 @@ function App() {
             )}
             deleteCollaborator={deleteCollaborator}
             updateTeamColor={updateTeamColor}
+            like={like}
           />
         );
       })}

@@ -1,18 +1,18 @@
 .footer {
-    width: 100%;
-    display: flex;
-    padding: 5%;
-    align-items: center;
-    box-sizing: border-box;
-    background-size: cover;
-    background-position: center;
-    justify-content: space-between;
-    color: #51efd2;
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
+  width: 100%;
+  display: flex;
+  padding: 5%;
+  align-items: center;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  justify-content: space-between;
+  color: #51efd2;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
 }
 .social img {
-    padding: 0px 15px;
-    width: 45px;
+  padding: 0px 15px;
+  width: 45px;
 }

@@ -1,15 +1,15 @@
-.inputs {
+.input {
   margin: 24px 0;
   font-family: "Montserrat", sans-serif;
 }
-.inputs label {
+.input label {
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 600;
   display: block;
   margin-bottom: 8px;
 }
-.inputs input {
+.input input {
   background: #fff;
   border-radius: 15px;
   border: none;
@@ -22,4 +22,8 @@
   outline-color: #6278f7;
   padding: 30px 20px;
   width: 100%;
+}
+.input-color input {
+  height: 40px;
+  padding: 5px 20px;
 }

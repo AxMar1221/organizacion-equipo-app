@@ -20,7 +20,10 @@ export const Footer = () => {
           <img src="/img/instagram.png" alt="Instagram" />
         </a>
 
-        <a href="https://www.linkedin.com/in/mario-hern%C3%A1ndez-ram%C3%ADrez-jim%C3%A9nez-aa5b8a237/" target="blank">
+        <a
+          href="https://www.linkedin.com/in/mario-hern%C3%A1ndez-ram%C3%ADrez-jim%C3%A9nez-aa5b8a237/"
+          target="blank"
+        >
           <img src="/img/linkedin.png" alt="LinkedIn" />
         </a>
       </div>
