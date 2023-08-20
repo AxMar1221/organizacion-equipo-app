@@ -16,7 +16,7 @@ function App() {
       rol: "Desarrollador Sr",
       team: "Programación",
       photo: "https://avatars.githubusercontent.com/u/85906328?v=4",
-      fav: true,
+      fav: false,
     },
     {
       id: uuid(),
